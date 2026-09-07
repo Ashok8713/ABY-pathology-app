@@ -1,0 +1,22 @@
+[package]
+name = "aby-pathology-app"
+version = "1.0.0"
+description = "Professional Pathology Lab Management System"
+authors = ["ABY Group"]
+edition = "2021"
+build = "src/build.rs"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.5", features = ["fs-all", "dialog-all", "shell-open"] }
+rusqlite = { version = "0.28", features = ["bundled"] }
+chrono = "0.4"
+toml = "0.8"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
